@@ -1,0 +1,13 @@
+for file in "$@"; do
+case ${file##*.} in
+"rar")
+#file2=${file%.*}.cbr
+mv "$file" "${file%.*}.cbr"
+;;
+"zip")
+#file2=${file%.*}.cbz
+mv "$file" "${file%.*}.cbz"
+;;
+esac
+#kdialog --msgbox "${file2}"
+done

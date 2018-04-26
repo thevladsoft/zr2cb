@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+#MimeType=application/zip;application/x-rar;
+MimeType=all/all;
+Actions=rarzip2cbrcbz;
+#X-KDE-Submenu=Extract me beautiful
+#X-KDE-Priority=TopLevel
+#X-KDE-StartupNotify=false
+#StartupNotify=false
+
+[Desktop Action rarzip2cbrcbz]
+Name=Cambia extensión a una compatible con okular
+#Icon=utilities-file-archiver
+Icon=/home/vidler/Imágenes/CDisplay-icon.png
+Exec=/home/vidler/bin/compresedtocbx %F
+

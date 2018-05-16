@@ -3,15 +3,24 @@ Type=Service
 ServiceTypes=KonqPopupMenu/Plugin
 #MimeType=application/zip;application/x-rar;
 MimeType=all/all;
-Actions=rarzip2cbrcbz;
-#X-KDE-Submenu=Extract me beautiful
-#X-KDE-Priority=TopLevel
+Actions=rarzip2cbrcbz;cbrcbz2rarzip;count;
+X-KDE-Submenu=Comic Book
+X-KDE-Priority=TopLevel
+Icon=speech_balloon
 #X-KDE-StartupNotify=false
 #StartupNotify=false
 
 [Desktop Action rarzip2cbrcbz]
-Name=Cambia extensión a una compatible con okular
-#Icon=utilities-file-archiver
-Icon=/home/vidler/Imágenes/CDisplay-icon.png
-Exec=/home/vidler/bin/compresedtocbx %F
+Name=Change zip and rar extensios to cbz and cbr
+Icon=speech_balloon
+Exec=compresedtocbx %F
 
+[Desktop Action cbrcbz2rarzip]
+Name=Change cbz and cbr extensios back to zip and rar
+Icon=speech_balloon
+Exec=compresedtocbx -u %F
+
+[Desktop Action count]
+Name=Counts number of pages on cbz and cbr files
+Icon=speech_balloon
+Exec=compresedtocbx -c %F

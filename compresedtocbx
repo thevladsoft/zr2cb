@@ -1,13 +1,48 @@
-for file in "$@"; do
-case ${file##*.} in
-"rar")
-#file2=${file%.*}.cbr
-mv "$file" "${file%.*}.cbr"
-;;
-"zip")
-#file2=${file%.*}.cbz
-mv "$file" "${file%.*}.cbz"
-;;
-esac
-#kdialog --msgbox "${file2}"
-done
+#!/bin/bash
+if [[ "$1" == "-u" ]]; then 
+    shift
+    for file in "$@"; do
+        case ${file##*.} in
+            "cbr")
+                kioclient5 mv "$file" "${file%.*}.rar"
+                ;;
+            "cbz")
+                kioclient5 mv "$file" "${file%.*}.zip"
+                ;;
+        esac
+    done
+elif [[ "$1" == "-c" ]]; then 
+    shift
+    filecounts=$(tempfile)
+    for file in "$@"; do
+        case ${file##*.} in
+            "cbr")
+                png=$(rar lb "$file" |grep -ic .png$)
+                jpg=$(rar lb "$file" |grep -ic .jpg$)
+                gif=$(rar lb "$file" |grep -ic .gif$)
+#                 echo "$file": $(rar lb "$file" | tail -2 | head -1 | awk '{ print $2 }') files >> $filecounts
+                echo $(basename "$file"): $(( $png + $jpg + $gif )) pages >> $filecounts
+                ;;
+            "cbz")
+                png=$(unzip -Z  "$file" |grep -ic .png$)
+                jpg=$(unzip -Z  "$file" |grep -ic .jpg$)
+                gif=$(unzip -Z  "$file" |grep -ic .gif$)
+#                 echo "$file": $(unzip -Z "$file" | tail -1 | awk '{ print $1 }') files >> $filecounts
+                echo $(basename "$file"): $(( $png + $jpg + $gif )) pages >> $filecounts
+                ;;
+        esac
+    done
+    kdialog --textbox $filecounts 600 200
+    kioclient5 rm $filecounts    
+else
+    for file in "$@"; do
+        case ${file##*.} in
+            "rar")
+                kioclient5 mv "$file" "${file%.*}.cbr"
+                ;;
+            "zip")
+                kioclient5 mv "$file" "${file%.*}.cbz"
+                ;;
+        esac
+    done
+fi

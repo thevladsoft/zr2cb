@@ -1,0 +1,28 @@
+### Commented entries have reasonable defaults.
+### Uncomment to edit them.
+# Source: <source package name; defaults to package name>
+Section: misc
+Priority: optional
+# Homepage: <enter URL here; no default>
+Standards-Version: 3.9.2
+
+Package: comic-book-kservicemenu
+#Version: 1.0
+Maintainer: thevladsoft
+# Pre-Depends: <comma-separated list of packages>
+Depends: rar,zip
+# Recommends: <comma-separated list of packages>
+# Suggests: <comma-separated list of packages>
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+Architecture: all
+# Multi-Arch: <one of: foreign|same|allowed>
+# Copyright: <copyright file; defaults to GPL2>
+# Changelog: <changelog file; defaults to a generic changelog>
+# Readme: <README.Debian file; defaults to a generic one>
+# Extra-Files: <comma-separated list of additional files for the doc directory>
+Files: compresedtocbx /usr/bin/
+ ziprar2cbzcbr.desktop /usr/share/kservices5/ServiceMenus/
+ speech_balloon.png /usr/local/share/icons/hicolor/64x64/apps/
+Description: Plasma service menu for Comic Books
+ Adds options to rename compressed files to comic book files, and count the number of pages

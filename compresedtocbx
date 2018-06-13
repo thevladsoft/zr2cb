@@ -19,16 +19,18 @@ elif [[ "$1" == "-c" ]]; then
             "cbr")
                 png=$(rar lb "$file" |grep -ic .png$)
                 jpg=$(rar lb "$file" |grep -ic .jpg$)
+                jpeg=$(rar lb "$file" |grep -ic .jpeg$)
                 gif=$(rar lb "$file" |grep -ic .gif$)
 #                 echo "$file": $(rar lb "$file" | tail -2 | head -1 | awk '{ print $2 }') files >> $filecounts
-                echo $(basename "$file"): $(( $png + $jpg + $gif )) pages >> $filecounts
+                echo $(basename "$file"): $(( $png + $jpg + $jpeg + $gif )) pages >> $filecounts
                 ;;
             "cbz")
                 png=$(unzip -Z  "$file" |grep -ic .png$)
                 jpg=$(unzip -Z  "$file" |grep -ic .jpg$)
+                jpeg=$(unzip -Z  "$file" |grep -ic .jpeg$)
                 gif=$(unzip -Z  "$file" |grep -ic .gif$)
 #                 echo "$file": $(unzip -Z "$file" | tail -1 | awk '{ print $1 }') files >> $filecounts
-                echo $(basename "$file"): $(( $png + $jpg + $gif )) pages >> $filecounts
+                echo $(basename "$file"): $(( $png + $jpg + $jpeg + $gif )) pages >> $filecounts
                 ;;
         esac
     done

@@ -35,7 +35,27 @@ elif [[ "$1" == "-c" ]]; then
         esac
     done
     kdialog --textbox $filecounts 600 200
-    kioclient5 rm $filecounts    
+    kioclient5 rm $filecounts
+elif [[ "$1" == "-j" ]]; then 
+    shift
+    if [[ -d "$@" ]]; then
+        cd "$@"
+        ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
+#         ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
+        rm -v *.[p,P][n,N][g,G];
+        cd ../
+        rar a "$@".cbr "$@"
+    fi
+elif [[ "$1" == "-r" ]]; then 
+    shift
+    if [[ -d "$@" ]]; then
+        cd "$@"
+        ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
+        ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
+        rm -v *.[p,P][n,N][g,G];
+        cd ../
+        rar a "$@".cbr "$@"
+    fi
 else
     for file in "$@"; do
         case ${file##*.} in

@@ -10,7 +10,7 @@ Package: comic-book-kservicemenu
 Version: 2.0
 Maintainer: thevladsoft
 # Pre-Depends: <comma-separated list of packages>
-Depends: rar,zip
+Depends: rar,zip,imagemagick,parallel
 # Recommends: <comma-separated list of packages>
 # Suggests: <comma-separated list of packages>
 # Provides: <comma-separated list of packages>

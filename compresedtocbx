@@ -38,24 +38,28 @@ elif [[ "$1" == "-c" ]]; then
     kioclient5 rm $filecounts
 elif [[ "$1" == "-j" ]]; then 
     shift
-    if [[ -d "$@" ]]; then
-        cd "$@"
-        ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
-#         ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
-        rm -v *.[p,P][n,N][g,G];
-        cd ../
-        rar a "$@".cbr "$@"
-    fi
+    for file in "$@"; do
+        if [[ -d "$file" ]]; then
+            cd "$file"
+            ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
+    #         ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
+            rm -v *.[p,P][n,N][g,G];
+            cd ../
+            rar a "$(basename "$file")".cbr "$file"
+        fi
+    done
 elif [[ "$1" == "-r" ]]; then 
     shift
-    if [[ -d "$@" ]]; then
-        cd "$@"
-        ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
-        ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
-        rm -v *.[p,P][n,N][g,G];
-        cd ../
-        rar a "$@".cbr "$@"
-    fi
+    for file in "$@"; do
+        if [[ -d "$file" ]]; then
+            cd "$file"
+            ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
+            ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
+            rm -v *.[p,P][n,N][g,G];
+            cd ../
+            rar a "$(basename "$file")".cbr "$file"
+        fi
+    done
 else
     for file in "$@"; do
         case ${file##*.} in

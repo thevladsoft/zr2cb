@@ -45,7 +45,7 @@ elif [[ "$1" == "-j" ]]; then
     #         ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
             rm -v *.[p,P][n,N][g,G];
             cd ../
-            rar a "$(basename "$file")".cbr "$file"
+            rar a "$(basename "$file")".cbr "$file"/
         fi
     done
 elif [[ "$1" == "-r" ]]; then 
@@ -57,7 +57,7 @@ elif [[ "$1" == "-r" ]]; then
             ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
             rm -v *.[p,P][n,N][g,G];
             cd ../
-            rar a "$(basename "$file")".cbr "$file"
+            rar a "$(basename "$file")".cbr "$file"/
         fi
     done
 else

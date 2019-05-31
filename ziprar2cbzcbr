@@ -7,7 +7,7 @@ Priority: optional
 Standards-Version: 3.9.2
 
 Package: comic-book-kservicemenu
-Version: 2.1
+Version: 2.2
 Maintainer: thevladsoft
 # Pre-Depends: <comma-separated list of packages>
 Depends: rar,zip,imagemagick,parallel

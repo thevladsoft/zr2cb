@@ -36,8 +36,36 @@ elif [[ "$1" == "-c" ]]; then
     done
     kdialog --textbox $filecounts 600 200
     kioclient5 rm $filecounts    
+elif  [[ "$1" == "-J" ]]; then 
+    shift
+    for file in "$@"; do
+        if [[ -d "$file" ]]; then
+#             cd "$file"
+#             ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
+#             rm -v *.[p,P][n,N][g,G];
+#             cd ../
+#             rar a "$(basename "$file")".cbr "$file"/
+            DOT=
+            I=
+            while [[ -e "$file"$DOT$I.rar ]] || [[ -e "$file"$DOT$I.cbr ]];do (( I++ ));DOT=.;done;
+            ark --changetofirstpath --add -t "$file"$DOT$I.rar  "$file"/
+            ./compresedtocbx "$file"$DOT$I.rar
+        fi
+    done
+elif  [[ "$1" == "-K" ]]; then 
+    shift
+    for file in "$@"; do
+        if [[ -d "$file" ]]; then
+            DOT=
+            I=
+            while [[ -e "$file"$DOT$I.zip ]] || [[ -e "$file"$DOT$I.cbz ]];do (( I++ ));DOT=.;done;
+            ark --changetofirstpath --add -t "$file"$DOT$I.zip  "$file"/
+            ./compresedtocbx "$file"$DOT$I.zip
+        fi
+    done
 else
     for file in "$@"; do
+    echo "$file"
         case ${file##*.} in
             "rar")
                 kioclient5 mv "$file" "${file%.*}.cbr"

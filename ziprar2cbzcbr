@@ -23,6 +23,6 @@ Architecture: all
 # Extra-Files: <comma-separated list of additional files for the doc directory>
 Files: compresedtocbx /usr/bin/
  ziprar2cbzcbr.desktop /usr/share/kservices5/ServiceMenus/
- speech_balloon.png /usr/local/share/icons/hicolor/64x64/apps/
+ speech_balloon.png /usr/share/icons/hicolor/64x64/apps/
 Description: Plasma service menu for Comic Books
  Adds options to rename compressed files to comic book files, and count the number of pages

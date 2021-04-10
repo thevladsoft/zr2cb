@@ -11,17 +11,17 @@ Icon=speech_balloon
 #StartupNotify=false
 
 [Desktop Action rarzip2cbrcbz]
-Name=Change zip and rar extensios to cbz and cbr
+Name=Change zip and rar extensions to cbz and cbr
 Icon=speech_balloon
 Exec=compresedtocbx %F
 
 [Desktop Action cbrcbz2rarzip]
-Name=Change cbz and cbr extensios back to zip and rar
+Name=Change cbz and cbr extensions back to zip and rar
 Icon=speech_balloon
 Exec=compresedtocbx -u %F
 
 [Desktop Action cbz]
-Name=Just add cbz extensios
+Name=Just add cbz extension
 Icon=speech_balloon
 Exec=compresedtocbx -z %F
 

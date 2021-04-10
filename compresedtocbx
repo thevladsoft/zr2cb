@@ -60,6 +60,10 @@ elif [[ "$1" == "-r" ]]; then
             rar a -ep "$(basename "$file")".cbr "$file"/
         fi
     done
+elif [[ "$1" == "-z" ]]; then 
+    for file in "$@"; do
+        kioclient5 mv "$file" "${file%.*}.cbz"
+    done
 else
     for file in "$@"; do
         case ${file##*.} in

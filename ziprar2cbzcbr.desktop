@@ -3,7 +3,7 @@ Type=Service
 ServiceTypes=KonqPopupMenu/Plugin
 #MimeType=application/zip;application/x-rar;
 MimeType=all/all;
-Actions=rarzip2cbrcbz;cbrcbz2rarzip;dirjpgrar;dirjpgcomprar;count;
+Actions=rarzip2cbrcbz;cbrcbz2rarzip;cbz;dirjpgrar;dirjpgcomprar;count;
 X-KDE-Submenu=Comic Book
 X-KDE-Priority=TopLevel
 Icon=speech_balloon
@@ -19,6 +19,11 @@ Exec=compresedtocbx %F
 Name=Change cbz and cbr extensios back to zip and rar
 Icon=speech_balloon
 Exec=compresedtocbx -u %F
+
+[Desktop Action cbz]
+Name=Just add cbz extensios
+Icon=speech_balloon
+Exec=compresedtocbx -z %F
 
 [Desktop Action dirjpgrar]
 Name=Change png files in dir to jpg and create cbr file

@@ -12,25 +12,30 @@ Icon=speech_balloon
 
 [Desktop Action rarzip2cbrcbz]
 Name=Change zip and rar extensios to cbz and cbr
+Name[nl]=Zip en rar omzetten naar cbz en cbr
 Icon=speech_balloon
 Exec=compresedtocbx %F
 
 [Desktop Action cbrcbz2rarzip]
 Name=Change cbz and cbr extensios back to zip and rar
+Name[nl]=Cbz en cbr omzetten naar zip en rar
 Icon=speech_balloon
 Exec=compresedtocbx -u %F
 
 [Desktop Action dirrar]
 Name=Compress directories into cbr files (1 per dir)
+Name[nl]=Mappen insluiten in cbr-bestanden (1 per map)
 Icon=folder-tar
 Exec=compresedtocbx -J %F
 [Desktop Action dirzip]
 
 Name=Compress directories into cbz files (1 per dir)
+Name[nl]=Mappen insluiten in cbz-bestanden (1 per map)
 Icon=folder-tar
 Exec=compresedtocbx -K %F
 
 [Desktop Action count]
 Name=Counts number of pages on cbz and cbr files
+Name[nl]=Aantal pagina's van cbz- en cbr-bestanden tellen
 Icon=speech_balloon
 Exec=compresedtocbx -c %F

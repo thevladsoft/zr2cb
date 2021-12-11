@@ -3,34 +3,34 @@ Type=Service
 ServiceTypes=KonqPopupMenu/Plugin
 #MimeType=application/zip;application/x-rar;
 MimeType=all/all;
-Actions=rarzip2cbrcbz;cbrcbz2rarzip;count;dirrar;dirzip;
+Actions=1rarzip2cbrcbz;2cbrcbz2rarzip;5count;4dirrar;3dirzip;
 X-KDE-Submenu=Comic Book
 X-KDE-Priority=TopLevel
 Icon=speech_balloon
 #X-KDE-StartupNotify=false
 #StartupNotify=false
 
-[Desktop Action rarzip2cbrcbz]
+[Desktop Action 1rarzip2cbrcbz]
 Name=Change zip and rar extensions to cbz and cbr
 Icon=speech_balloon
 Exec=compresedtocbx %F
 
-[Desktop Action cbrcbz2rarzip]
+[Desktop Action 2cbrcbz2rarzip]
 Name=Change cbz and cbr extensions back to zip and rar
 Icon=speech_balloon
 Exec=compresedtocbx -u %F
 
-[Desktop Action dirrar]
+[Desktop Action 4dirrar]
 Name=Compress directories into cbr files (1 per dir)
 Icon=folder-tar
 Exec=compresedtocbx -J %F
-[Desktop Action dirzip]
+[Desktop Action 3dirzip]
 
 Name=Compress directories into cbz files (1 per dir)
 Icon=folder-tar
 Exec=compresedtocbx -K %F
 
-[Desktop Action count]
+[Desktop Action 5count]
 Name=Counts number of pages on cbz and cbr files
 Icon=speech_balloon
 Exec=compresedtocbx -c %F

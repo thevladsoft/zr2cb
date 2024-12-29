@@ -7,7 +7,7 @@ Priority: optional
 Standards-Version: 3.9.2
 
 Package: comic-book-kservicemenu
-Version: 2.4.1
+Version: 2.4.2
 Maintainer: thevladsoft
 # Pre-Depends: <comma-separated list of packages>
 Depends: rar,zip,imagemagick,parallel
@@ -23,6 +23,7 @@ Architecture: all
 # Extra-Files: <comma-separated list of additional files for the doc directory>
 Files: compresedtocbx /usr/bin/
  ziprar2cbzcbr.desktop /usr/share/kservices5/ServiceMenus/
+# ziprar2cbzcbr.desktop /usr/share/kio/servicemenus/
  speech_balloon.png /usr/share/icons/hicolor/64x64/apps/
 Description: Plasma service menu for Comic Books
  Adds options to rename compressed files to comic book files, and count the number of pages

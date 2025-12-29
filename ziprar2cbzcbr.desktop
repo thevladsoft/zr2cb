@@ -3,7 +3,7 @@ Type=Service
 ServiceTypes=KonqPopupMenu/Plugin
 #MimeType=application/zip;application/x-rar;
 MimeType=all/all;
-Actions=1rarzip2cbrcbz;2cbrcbz2rarzip;3cbz;4dirjpgrar;5dirjpgcomprar;6count;
+Actions=1rarzip2cbrcbz;2cbrcbz2rarzip;3cbz;4dirjpgrar;5dirjpgcomprar;6dirwebptocompweprar;7count;
 X-KDE-Submenu=Comic Book
 X-KDE-Priority=TopLevel
 Icon=speech_balloon
@@ -31,11 +31,16 @@ Icon=folder-tar
 Exec=compresedtocbx -j %F
 
 [Desktop Action 5dirjpgcomprar]
-Name=Change png files in dir to low qulity jpg and create cbr file
+Name=Change png files in dir to low quality jpg and create cbr file
 Icon=folder-tar
 Exec=compresedtocbx -r %F
 
-[Desktop Action 6count]
+[Desktop Action 6dirwebptocompweprar]
+Name=Change webp files in dir to low quality webp and create cbr file
+Icon=folder-tar
+Exec=compresedtocbx -w %F
+
+[Desktop Action 7count]
 Name=Counts number of pages on cbz and cbr files
 Icon=speech_balloon
 Exec=compresedtocbx -c %F

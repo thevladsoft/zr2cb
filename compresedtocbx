@@ -46,6 +46,7 @@ elif [[ "$1" == "-j" ]]; then
             rm -v *.[p,P][n,N][g,G];
             cd ../
             rar a -ep "$(basename "$file")".cbr "$(basename "$file")"/*
+          fi  
     done
 elif [[ "$1" == "-r" ]]; then 
     shift
@@ -55,6 +56,16 @@ elif [[ "$1" == "-r" ]]; then
             ls *.[p,P][n,N][g,G] 2> /dev/null |parallel --eta "convert {} {.}.jpg";
             ls *.[j,J][p,P][g,G] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
             rm -v *.[p,P][n,N][g,G];
+            cd ../
+            rar a -ep "$(basename "$file")".cbr "$(basename "$file")"/*
+        fi
+    done
+elif [[ "$1" == "-w" ]]; then 
+    shift
+    for file in "$@"; do
+        if [[ -d "$file" ]]; then
+            cd "$file"
+            ls *.[w,WJ][e,E][b,P][p,P] 2> /dev/null |parallel --eta "mogrify -quality 60% -resize 800\> {}";
             cd ../
             rar a -ep "$(basename "$file")".cbr "$(basename "$file")"/*
         fi
